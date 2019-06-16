@@ -27,6 +27,15 @@ public class JobForm {
         with correct validation attributes and display names.
         Don't forget to add getters and setters
      */
+    @NotNull
+    private int locationId;
+
+    @NotNull
+    private int coreCompetenciesId;
+
+    @NotNull
+    private int positionTypeId;
+
 
     private ArrayList<Employer> employers;
     private ArrayList<Location> locations;
@@ -40,6 +49,10 @@ public class JobForm {
         /*
             TODO #4 - populate the other ArrayList collections needed in the view
         */
+
+        locations = jobData.getLocations().findAll();
+        coreCompetencies = jobData.getCoreCompetencies().findAll();
+        positionTypes = jobData.getPositionTypes().findAll();
 
         employers = jobData.getEmployers().findAll();
 
@@ -61,6 +74,18 @@ public class JobForm {
         this.employerId = employerId;
     }
 
+    public int getLocationId() { return locationId; }
+
+    public void setLocationId(int locationId) { this.locationId = locationId; }
+
+    public int getCoreCompetenciesId() { return coreCompetenciesId; }
+
+    public void setCoreCompetenciesId(int coreCompetenciesId) { this.coreCompetenciesId = coreCompetenciesId; }
+
+    public int getPositionTypeId() { return positionTypeId; }
+
+    public void setPositionTypeId(int positionTypeId) { this.positionTypeId = positionTypeId; }
+
     public ArrayList<Employer> getEmployers() {
         return employers;
     }
@@ -81,9 +106,7 @@ public class JobForm {
         return coreCompetencies;
     }
 
-    public void setCoreCompetencies(ArrayList<CoreCompetency> coreCompetencies) {
-        this.coreCompetencies = coreCompetencies;
-    }
+    public void setCoreCompetencies(ArrayList<CoreCompetency> coreCompetencies) { this.coreCompetencies = coreCompetencies; }
 
     public ArrayList<PositionType> getPositionTypes() {
         return positionTypes;
